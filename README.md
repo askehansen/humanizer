@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'humanizer'
+    gem 'type-humanizer'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install humanizer
+    $ gem install type-humanizer
 
 ## Usage
 
