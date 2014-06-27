@@ -1,6 +1,6 @@
 # Humanizer
 
-A library for humazing and sanitizing array and hash
+A library for *humazing* and *sanitizing* `Array` and `Hash`
 
 ## Installation
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ### Humanizing
 
-We can humanize `Array` and `Hash`
+*First, lets humanize some data*
+
+ We can humanize an `Array` and a `Hash`
 
 To do that, we just call `Humanizer::Human#from`
 
@@ -35,9 +37,13 @@ Humanizer::Human.from { :foo => 'bar', :boo => 'baz' }
 ```
 
 ### Sanitizing
-Again, we can sanitize `Array` and `Hash`
 
-This time we need the `Humanizer::Sanitize` class
+*Now lets sanitize it*
+
+Again, we can sanitize an `Array` and a `Hash`
+
+For this we need the `Humanizer::Sanitize` class
+
 ```ruby
 sanitizer = Humanizer::Sanitize.new
 
@@ -53,13 +59,11 @@ We can also sanitize a hash of params.. This could be some Rails params
 All we need to do is pass the params and specify which params should be sanitized to what type
 
 ```ruby
-params = { friends: 'Jack, Jill', favorites: 'drink: Coffee, fruit: Bananas' }
+params = { friends: 'Jack, Jill', favorites: 'drink: Coffee, fruit: Banana' }
 
 Humanizer::Sanitize.params params, friends: :array, favorites: :hash
 => { :friends => ["Jack", "Jill"], :favorites => { "drink" => "Coffee", "fruit" => "Banana" } }
 ```
-
-
 
 ## Contributing
 
