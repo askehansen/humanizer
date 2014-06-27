@@ -29,7 +29,7 @@ module Humanizer
       params = Hash(params)
       options = Hash(options)
 
-      sanitizer = Humanizer::Sanitize.new
+      sanitizer = Sanitize.new
 
       options.each do |param, type|
         params[param] = sanitizer.from params[param], to: type
