@@ -55,7 +55,7 @@ All we need to do is pass the params and specify which params should be sanitize
 ```ruby
 params = { friends: 'Jack, Jill', favorites: 'drink: Coffee, fruit: Bananas' }
 
-Humanizer::Sanitize.param params, friends: :array, favorites: :hash
+Humanizer::Sanitize.params params, friends: :array, favorites: :hash
 => { :friends => ["Jack", "Jill"], :favorites => { "drink" => "Coffee", "fruit" => "Banana" } }
 ```
 
