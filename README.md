@@ -30,7 +30,7 @@ To do that, we just call `Humanizer::Human#from`
 Humanizer::Human.from ['a', 'b', 'c']
 => "a, b, c"
 
-Humanizer::Human.from { :foo => 'bar', :boo 'baz' }
+Humanizer::Human.from { :foo => 'bar', :boo => 'baz' }
 => "foo: bar, boo: baz"
 ```
 
