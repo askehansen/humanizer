@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'humanizer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "humanizer"
+  spec.name          = "type-humanizer"
   spec.version       = Humanizer::VERSION
   spec.authors       = ["Aske Hansen"]
   spec.email         = ["aske@deeco.dk"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Humanize and sanitize array and hash"
+  spec.description   = "A library for humazing and sanitizing array and hash"
+  spec.homepage      = "https://github.com/askehansen/humanizer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
