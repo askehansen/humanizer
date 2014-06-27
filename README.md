@@ -1,6 +1,6 @@
 # Humanizer
 
-TODO: Write a gem description
+A library for humazing and sanitizing array and hash
 
 ## Installation
 
