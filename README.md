@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'type-humanizer'
+    gem 'type-humanizer', require: 'humanizer'
 
 And then execute:
 
