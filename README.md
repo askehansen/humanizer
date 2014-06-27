@@ -1,6 +1,6 @@
 # Humanizer
 
-TODO: Write a gem description
+A library for humazing and sanitizing array and hash
 
 ## Installation
 
@@ -18,7 +18,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Humanizing
+
+We can humanize `Array` and `Hash`
+
+To do that, we just call `Humanizer::Human#from`
+
+    Humanizer::Human.from ['a', 'b', 'c']
+    => "a, b, c"
+    
+    Humanizer::Human.from { :foo => 'bar', :boo 'baz' }
+    => "foo: bar, boo: baz"
+
+### Sanitizing
+Again, we can sanitize `Array` and `Hash`
+
+This time we need the `Humanizer::Sanitize` class
+
+    sanitizer = Humanizer::Sanitize.new
+    
+    sanitizer.to_array 'a, b, c'
+    => ["a", "b", "c"]
+    
+    sanitizer.to_hash 'foo: bar, boo: baz'
+    => { "foo" => "bar", "boo" => "baz" }
+    
+We can also sanitize hash of params.. This could be some Rails params
+
+All we need to do is pass the params and specify which params should be sanitized to what type
+
+    params = { friends: 'Jack, Jill', favorites: 'drink: Coffee, fruit: Bananas' }
+    
+    Humanizer::Sanitize.param params, friends: :array, favorites: :hash
+    => { :friends => ["Jack", "Jill"], :favorites => { "drink" => "Coffee", "fruit" => "Banana" } }
+
+
 
 ## Contributing
 
@@ -27,3 +61,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+    
