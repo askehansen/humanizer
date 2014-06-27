@@ -48,7 +48,7 @@ sanitizer.to_hash 'foo: bar, boo: baz'
 => { "foo" => "bar", "boo" => "baz" }
 ```
     
-We can also sanitize hash of params.. This could be some Rails params
+We can also sanitize a hash of params.. This could be some Rails params
 
 All we need to do is pass the params and specify which params should be sanitized to what type
 
@@ -57,7 +57,7 @@ params = { friends: 'Jack, Jill', favorites: 'drink: Coffee, fruit: Bananas' }
 
 Humanizer::Sanitize.param params, friends: :array, favorites: :hash
 => { :friends => ["Jack", "Jill"], :favorites => { "drink" => "Coffee", "fruit" => "Banana" } }
-``
+```
 
 
 
