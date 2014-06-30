@@ -15,4 +15,8 @@ class HumanTest < Test::Unit::TestCase
      assert_equal 'foo: bar, boo: baz', humanizer.from_hash({ foo: :bar, boo: :baz })
      assert_equal '', humanizer.from_hash(nil)
    end
+
+   def test_human_from
+    assert_equal '', Humanizer::Human.from(nil)
+   end
 end
