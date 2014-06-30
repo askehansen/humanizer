@@ -17,6 +17,7 @@ class HumanTest < Test::Unit::TestCase
    end
 
    def test_human_from
-    assert_equal '', Humanizer::Human.from(nil)
+    assert_equal 'foo', Humanizer::Human.from('foo')
+    assert_equal nil, Humanizer::Human.from(nil)
    end
 end

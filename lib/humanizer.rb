@@ -41,7 +41,7 @@ module Humanizer
 
   class Human
     def self.from(value)
-      type = String(value).class.to_s.downcase
+      type = value.class.to_s.downcase
       human = Human.new
 
       human.send "from_#{type}", value
@@ -64,7 +64,7 @@ module Humanizer
     end
 
     def method_missing(name, *args)
-      ''
+      args[0]
     end
   end
 end
