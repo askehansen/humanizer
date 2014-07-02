@@ -14,7 +14,9 @@ module Humanizer
       hash = {}
       
       value.split(',').each do |key_val|
-        k,v = key_val.split(':')
+        k, v = key_val.split(':')
+        k = String(k)
+        v = String(v)
         hash[k.strip] = v.strip
       end
 
