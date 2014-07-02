@@ -5,6 +5,8 @@ module Humanizer
     def to_array(value)
       value = String(value)
 
+      return nil if value.empty?
+
       array = String(value).split ','
       array.map &:strip
     end
@@ -12,6 +14,8 @@ module Humanizer
     def to_hash(value)
       value = String(value)
       hash = {}
+
+      return nil if value.empty?
       
       value.split(',').each do |key_val|
         k, v = key_val.split(':')
