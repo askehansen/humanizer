@@ -65,6 +65,19 @@ Humanizer::Sanitize.params params, friends: :array, favorites: :hash
 => { :friends => ["Jack", "Jill"], :favorites => { "drink" => "Coffee", "fruit" => "Banana" } }
 ```
 
+## Configuration
+
+You can configure the delimeters by creating an initializer:
+
+```ruby
+Humanizer.configure do |config|
+  # These are the default values
+  config.array_delimeter   = ', '
+  config.hash_delimeter    = ', '
+  config.key_val_delimeter = ': '
+end
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/askehansen/humanizer/fork )
