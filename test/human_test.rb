@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'humanizer'
+require 'type-humanizer'
 
 class HumanTest < Test::Unit::TestCase
   def test_humanize_array

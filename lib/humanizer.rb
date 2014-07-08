@@ -1,13 +1,28 @@
-require "humanizer/version"
-
 module Humanizer
+  class << self
+
+    def config=(data)
+      @config = data
+    end
+
+    def config
+      @config ||= Config.new
+      @config
+    end
+
+    def configure(&proc)
+      @config ||= Config.new
+      yield @config
+    end
+  end
+
   class Sanitize
     def to_array(value)
       value = String(value)
 
       return nil if value.empty?
 
-      array = String(value).split ','
+      array = String(value).split Humanizer.config.array_delimeter
       array.map &:strip
     end
 
@@ -17,8 +32,8 @@ module Humanizer
 
       return nil if value.empty?
       
-      value.split(',').each do |key_val|
-        k, v = key_val.split(':')
+      value.split(Humanizer.config.hash_delimeter).each do |key_val|
+        k, v = key_val.split(Humanizer.config.key_val_delimeter)
         k = String(k)
         v = String(v)
         hash[k.strip] = v.strip
@@ -56,17 +71,17 @@ module Humanizer
     def from_array(value)
       value = Array(value)
       
-      value.join ', '
+      value.join Humanizer.config.array_delimeter
     end
 
     def from_hash(value)
       value = Hash(value)
 
       value = value.map do |k, v|
-        "#{k}: #{v}"
+        "#{k}#{Humanizer.config.key_val_delimeter}#{v}"
       end
 
-      value.join(', ')
+      value.join(Humanizer.config.hash_delimeter)
     end
 
     def method_missing(name, *args)
