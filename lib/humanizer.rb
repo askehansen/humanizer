@@ -71,17 +71,17 @@ module Humanizer
     def from_array(value)
       value = Array(value)
       
-      value.join Humanizer.config.array_delimeter
+      value.join "#{Humanizer.config.array_delimeter} "
     end
 
     def from_hash(value)
       value = Hash(value)
 
       value = value.map do |k, v|
-        "#{k}#{Humanizer.config.key_val_delimeter}#{v}"
+        "#{k}#{Humanizer.config.key_val_delimeter} #{v}"
       end
 
-      value.join(Humanizer.config.hash_delimeter)
+      value.join("#{Humanizer.config.hash_delimeter} ")
     end
 
     def method_missing(name, *args)
